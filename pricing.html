@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link type='text/css' rel='stylesheet' href='./css/style.css' />
+    <link rel='icon' href='./images/favicon.png' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no' />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+
+    <title>MerManager | Pricing</title>
+  </head>
+  <body>
+    <header>
+      <a href='index.html' id='logo'><img src='./images/logo.png'></a>
+      <nav id='header-nav'>
+        <div id='hamburger' onclick='$("#header-nav").toggle();'>
+          <div class='line' id='one'></div>
+          <div class='line' id='two'></div>
+          <div class='line' id='three'></div>
+        </div>
+        <ul>
+          <li><a href='./pricing.html' id='left-edge' class='current'>Pricing</a></li>
+          <li><a href='./signup.html'>Sign Up</a></li>
+          <li><a href='./login.html' id='right-edge'>Log In</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section id='pricing'>
+      <h2>Pricing</h2>
+      <div id='plans'>
+        <div id='plan'>
+          <h3>$2</h3>
+          <p>per student per class</p>
+        </div>
+      </div>
+    </section>
+    <section id='contact'>
+      <form>
+        <h2>Questions?</h2>
+        <h3>We'll get right back to you.</h3>
+        <div class='flex-input halves'>
+          <input type='text' placeholder='Name' id='name' />
+          <input type='email' placeholder='Email' id='email'/>
+        </div>
+        <textarea placeholder='Message' id='message'></textarea>
+        <input type='submit' value='Send' class='submit' />
+      </form>
+    </section>
+    <footer>
+      <nav>
+        <ul>
+          <li><a href='./pricing.html'>Pricing</a></li>
+          <li><a href='./signup.html'>Sign Up</a></li>
+          <li><a href='./login.html'>Log In</a></li>
+        </ul>
+      </nav>
+      <div id='footer-links'>
+        <p class='copyright'>&copy; 2020 Savannah Blood</p>
+        <p class='repo'><a href='https://github.com/savannahblood/cs260-creative-project-1' target='_blank'>My Github Repository</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
