@@ -53,6 +53,12 @@ html {
   --header-height: 60px;
 }
 
+@media only screen and (max-width: 410px) {
+  :root {
+    --header-height: 40px;
+  }
+}
+
 @font-face {
   font-family: 'Sphere Sans';
   src: url('../fonts/SphereSans.ttf');
@@ -143,6 +149,22 @@ section p {
   padding: 10px 0px;
 }
 
+@media only screen and (max-width: 1650px) {
+  h2 {
+    font-size: 90px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  h2 {
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+}
+
 @media only screen and (max-width: 710px) {
   .plx {
     height: 300px;
@@ -156,6 +178,10 @@ section p {
   section {
     padding: 20px;
     background-color: ;
+  }
+
+  h2 {
+    font-size: 70px;
   }
 }
 
@@ -213,7 +239,7 @@ form.notice label {
   margin-bottom: 5px;
 }
 
-form.notice #submit {
+form.notice .submit {
   margin: 0 3px;
   width: calc(50% - 6px);
 }
@@ -408,6 +434,26 @@ form .submit:focus {
   background-color: var(--blue);
 }
 
+@media only screen and (max-width: 1200px) {
+  form .flex-input.thirds {
+    flex-direction: column;
+  }
+
+  form .flex-input.thirds input {
+    width: calc(100% - 20px);
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  form .flex-input.halves {
+    flex-direction: column;
+  }
+
+  form .flex-input.halves input {
+    width: calc(100% - 20px);
+  }
+}
+
 /* button */
 .button:link,
 .button:visited {
@@ -528,30 +574,34 @@ header nav {
   border-radius: 10px;
   box-sizing: border-box;
   box-shadow: 2px 2px 8px rgba(68, 68, 68, 0.5);
+  position: relative;
 }
 
-header nav #hamburger {
-  width: 50px;
+header #hamburger {
+  width: 60px;
+  padding: 11.5px 10px;
   position: relative;
+  background-color: var(--white);
+  border-radius: 10px;
   display: none;
 }
 
-header nav #hamburger .line {
+header #hamburger .line {
   width: 100%;
   height: 5px;
-  background-color: ;
+  background-color: var(--blue);
   margin: 5px 0px;
   border-radius: 5px;
   transition: 0.6s;
 }
 
-header nav #hamburger:hover,
-header nav #hamburger:focus {
+header #hamburger:hover,
+header #hamburger:focus {
   cursor: pointer;
 }
 
-header nav #hamburger:hover>.line,
-header nav #hamburger:focus>.line {
+header #hamburger:hover>.line,
+header #hamburger:focus>.line {
   background-color: ;
 }
 
@@ -608,48 +658,74 @@ header nav ul li #right-edge:visited {
   border-left: 1px solid rgba(0,0,0,0.2);
 }
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 850px) {
   header {
-    padding: 30px;
-    position: relative;
     z-index: 10;
     height: auto;
   }
 
-  header #logo:hover img,
-  header #logo:active img,
-  header #logo:focus img {
-    transform: scale(1.1);
-  }
-
-  header nav #hamburger {
+  header #hamburger {
     display: block;
   }
 
   header nav {
-    display: none;
-    width: 100%;
+    position: absolute;
+    right: 0px;
+    top: 60px;
   }
 
   header nav ul {
-    flex-direction: column;
-    width: 100%;
+    width: 150px;
+    background-color: transparent;
   }
 
   header nav ul li a:link,
   header nav ul li a:visited {
-    width: 100%;
+    width: 150px;
+    border: none !important;
+    text-align: center;
+    background-color: var(--white);
+  }
+
+  header nav ul li a:hover,
+  header nav ul li a:active,
+  header nav ul li a:focus {
+    color: var(--white);
+    background-color: var(--pink);
+    text-decoration: none;
+  }
+
+  header nav ul li #left-edge:link,
+  header nav ul li #left-edge:visited {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-right: 1px solid rgba(0,0,0,0.2);
+  }
+
+  header nav ul li #right-edge:link,
+  header nav ul li #right-edge:visited {
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left: 1px solid rgba(0,0,0,0.2);
   }
 }
 
-@media only screen and (max-width: 450px) {
-  header {
-    padding: 20px;
-  }
-
+@media only screen and (max-width: 410px) {
   header #logo:link img,
   header #logo:visited img {
-    height: 30px;
+    height: calc(var(--header-height));
+  }
+
+  header #hamburger {
+    padding: 5px 10px;
+  }
+
+  header nav ul li a:link,
+  header nav ul li a:visited {
+    padding: 5px;
+    height: calc(var(--header-height) + 10px);
   }
 }
 
@@ -831,6 +907,109 @@ footer .repo a:focus {
   font-size: 30px;
   font-family: var(--title);
   color: white;
+}
+
+@media only screen and (max-width: 1650px) {
+  #about .about-sec .content {
+    width: 40%;
+  }
+
+  #about .about-sec .content h2 {
+    font-size: 90px;
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  #about .about-sec {
+    flex-direction: column !important;
+  }
+
+  #about .about-sec .image {
+    margin: auto
+  }
+
+  #about .about-sec .content {
+    width: 60%;
+    margin: auto;
+    padding-top: 40px;
+  }
+
+  #about .about-sec .content h2 {
+    text-align: center;
+  }
+
+  #about .about-sec .content p {
+    text-align: justify;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  #about .about-sec .content {
+    width: 80%;
+  }
+
+  #contact form {
+    width: 95%;
+  }
+
+  #contact form h3 {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 710px) {
+  #home-bg {
+    height: 50vh;
+    background-attachment: scroll;
+  }
+
+  .plx .quote-bg .quote {
+    font-size: 60px;
+    line-height: 1;
+  }
+
+  #waves {
+    height: calc((100vw * 20) / 22);
+  }
+
+  #waves .wave {
+    background-size: 300%;
+    top: -40px;
+  }
+
+  #about {
+    background-color: var(--blue);
+    margin-top: -60px;
+  }
+
+  #about .about-sec .image {
+    width: 85vw;
+    height: 85vw;
+  }
+
+  #about .about-sec .content {
+    width: 85vw;
+  }
+
+  #about .about-sec .content h2 {
+    font-size: 70px;
+  }
+
+  #about .about-sec .content p {
+    color: var(--white);
+    font-size: 21px;
+    line-height: 1.6;
+  }
+
+  #contact form h2 {
+    font-size: 60px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #about .about-sec .content p {
+   text-align: left;
+  }
 }
 
 /* --- OTHER PAGES --- */
