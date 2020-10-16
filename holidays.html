@@ -6,7 +6,7 @@
     <link rel='icon' href='./images/favicon.png' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no' />
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-    <title>MerManager | Pricing</title>
+    <title>MerManager | Holidays</title>
   </head>
   <body>
     <header>
@@ -18,20 +18,17 @@
       </div>
       <nav id='header-nav'>
         <ul>
-          <li><a href='./pricing.html' id='left-edge' class='current'>Pricing</a></li>
-          <li><a href='./students.html'>Students</a></li>
+          <li><a href='./pricing.html' id='left-edge'>Pricing</a></li>
+          <li><a href='./holidays.html' style='border-right: 1px solid rgba(0,0,0,0.2);' class='current'>Holidays</a></li>
           <li><a href='./signup.html'>Sign Up</a></li>
           <li><a href='./login.html' id='right-edge'>Log In</a></li>
         </ul>
       </nav>
     </header>
-    <section id='pricing'>
-      <h2>Pricing</h2>
-      <div id='plans'>
-        <div id='plan'>
-          <h3>$2</h3>
-          <p>per student per class</p>
-        </div>
+    <section id='holidays'>
+      <h2>Holidays!</h2>
+      <div id='holidays-results'>
+        <h3>Holidays This Week</h3>
       </div>
     </section>
     <section id='contact'>
@@ -60,6 +57,44 @@
         <p class='repo'><a href='https://github.com/savannahblood/cs260-creative-project-1' target='_blank'>My Github Repository</a></p>
       </div>
     </footer>
+    <script>
+    var month= ["January", "February", "March", "April", "May", "June", "July", "August", "September","October", "November", "December"];
+
+    var curDate = new Date();
+
+    for(let d = 0; d < 7; d++) {
+      var useDate = new Date();
+      useDate.setDate(curDate.getDate() + d);
+      console.log(useDate)
+      const url = "https://calendarific.com/api/v2/holidays?api_key=247c60cb8f8180e38946747ac2737c58100410e3&country=US&year=2020&day=" + useDate.getDate() + "&month=" + (useDate.getMonth() + 1);
+      fetch(url)
+        .then(function(response) {
+          return response.json();
+        }).then(function(json) {
+          console.log(json);
+          var response = json.response;
+
+          let results = "";
+          results += '<ul>';
+
+          var prevHoliday = "";
+          for (let i = 0; i < response.holidays.length; i++) {
+            if(response.holidays[i].name !== prevHoliday) {
+              var date = new Date(response.holidays[i].date.iso);
+              date.setDate(date.getDate() + 1);
+              var dateString = month[date.getMonth()] + " " + date.getDate();
+
+              results += '<li>' + response.holidays[i].name + '<ul><li>' + dateString + '</li><li>' + response.holidays[i].description + '</li></ul></li>';
+
+              prevHoliday = response.holidays[i].name;
+            }
+          }
+          results += '</ul>';
+
+          document.getElementById("holidays-results").innerHTML += results;
+        });
+    }
+    </script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

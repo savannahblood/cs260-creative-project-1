@@ -575,6 +575,7 @@ header nav {
   box-sizing: border-box;
   box-shadow: 2px 2px 8px rgba(68, 68, 68, 0.5);
   position: relative;
+  display: block;
 }
 
 header #hamburger {
@@ -631,6 +632,7 @@ header nav ul li a:active,
 header nav ul li a:focus {
   color: var(--white);
   background-color: var(--pink);
+  text-decoration: none !important;
 }
 
 header nav ul li .current:link,
@@ -672,6 +674,7 @@ header nav ul li #right-edge:visited {
     position: absolute;
     right: 0px;
     top: 60px;
+    display: block;
   }
 
   header nav ul {
@@ -844,7 +847,7 @@ footer .repo a:focus {
   height: 100%;
   width: 100%;
   position: absolute;
-  top: -30px;
+  top: -40px;
 }
 
 #about {
@@ -1021,6 +1024,7 @@ footer .repo a:focus {
 #pricing h2 {
   text-align: center;
   text-shadow: 2px 2px 8px var(--blue2);
+  padding-top: 70px;
   padding-bottom: 0;
 }
 
@@ -1050,4 +1054,61 @@ footer .repo a:focus {
   text-align: center;
   text-shadow: 2px 2px 8px var(--blue2);
   padding-bottom: 0;
+  padding-top: 70px;
+}
+
+#holidays h2 {
+  text-align: center;
+  text-shadow: 2px 2px 8px var(--blue2);
+  padding-bottom: 0;
+  padding-top: 70px;
+}
+
+#holidays #holidays-results {
+  padding: 0 20px;
+  width: 40%;
+  margin: auto;
+}
+
+#holidays #holidays-results h3 {
+  padding-top: 30px;
+  padding-bottom: 0;
+  font-size: 45px;
+  color: var(--white);
+  font-family: var(--body-bold);
+}
+
+#holidays #holidays-results ul li {
+  color: var(--white);
+  font-size: 20px;
+}
+
+#holidays #holidays-results > ul {
+
+}
+
+#holidays #holidays-results > ul > li {
+  color: var(--white);
+  font-size: 30px;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+#holidays #holidays-results > ul > li > ul > li {
+  margin-left: 30px;
+  list-style-type: disc;
+}
+
+@media only screen and (max-width: 710px) {
+  #pricing h2 {
+    padding-top: 100px;
+  }
+
+  .account-form  h2 {
+    padding-top: 100px;
+  }
+
+  #holidays h2 {
+    padding-top: 100px;
+  }
 }
